@@ -51,12 +51,12 @@ body {
 .hero .sub {
     font-size: 20px;
     letter-spacing: 2px;
-    color: #dddddd;
+    color: #ddd;
 }
 
 .hero .kr {
     margin-top: 15px;
-    color: #999999;
+    color: #999;
     font-size: 14px;
 }
 
@@ -73,7 +73,7 @@ section {
 .label {
     font-size: 13px;
     letter-spacing: 4px;
-    color: #999999;
+    color: #999;
     margin-bottom: 20px;
 }
 
@@ -87,7 +87,7 @@ h2 {
     max-width: 720px;
     margin: auto;
     font-size: 18px;
-    color: #dddddd;
+    color: #ddd;
 }
 
 .quote {
@@ -104,26 +104,53 @@ h2 {
     margin-bottom: 20px;
 }
 
+/* PHOTO */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 12px;
     margin-top: 50px;
 }
 
 .photo {
-    min-height: 430px;
     background: #202020;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #777;
-    font-size: 14px;
+    overflow: hidden;
 }
 
+.photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 430px;
+    object-fit: cover;
+}
+
+/* VIDEO */
+.video-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 55px;
+}
+
+.video-card video {
+    display: block;
+    width: 100%;
+    max-height: 620px;
+    background: #000;
+}
+
+.video-caption {
+    text-align: center;
+    color: #aaa;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* PROCESS */
 .process {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 15px;
     margin-top: 50px;
 }
@@ -142,6 +169,7 @@ h2 {
     font-size: 18px;
 }
 
+/* JAPAN / PRICE */
 .japan {
     background: #151515;
     max-width: none;
@@ -153,6 +181,27 @@ h2 {
     padding: 110px 25px;
 }
 
+.price-box {
+    max-width: 620px;
+    margin: 45px auto 0;
+    padding: 35px 25px;
+    border-top: 1px solid #555;
+    border-bottom: 1px solid #555;
+    text-align: center;
+}
+
+.price {
+    font-size: clamp(30px, 6vw, 48px);
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.note {
+    color: #aaa;
+    margin-top: 8px;
+}
+
+/* RESERVATION */
 .cta {
     text-align: center;
     padding: 120px 25px;
@@ -160,7 +209,7 @@ h2 {
 
 .button {
     display: inline-block;
-    margin-top: 35px;
+    margin: 18px 8px 0;
     padding: 17px 40px;
     border: 1px solid #fff;
     color: #fff;
@@ -182,8 +231,11 @@ footer {
     font-size: 13px;
 }
 
-@media(max-width:700px) {
-    .gallery {
+/* MOBILE */
+@media (max-width: 700px) {
+
+    .gallery,
+    .video-gallery {
         grid-template-columns: 1fr;
     }
 
@@ -194,12 +246,18 @@ footer {
     section {
         padding: 80px 20px;
     }
+
+    .photo img {
+        min-height: 0;
+        height: auto;
+    }
 }
 </style>
 </head>
 
 <body>
 
+<!-- HERO -->
 <div class="hero">
     <div class="hero-inner">
 
@@ -225,9 +283,12 @@ footer {
 </div>
 
 
+<!-- WHY -->
 <section class="center">
 
-    <div class="label">WHY PHOTOGRAPHY?</div>
+    <div class="label">
+        WHY PHOTOGRAPHY?
+    </div>
 
     <h2>
         あなたは韓国旅行で、<br>
@@ -238,10 +299,13 @@ footer {
         ヘアスタイルも、メイクも、
         その日の美しさをつくる大切な時間です。
         <br><br>
+
         でも、その瞬間は時間とともに過ぎていきます。
         <br><br>
+
         写真は違います。
         <br><br>
+
         その日の表情、空気、そして今のあなたを、
         一枚の作品として残すことができます。
     </div>
@@ -249,6 +313,7 @@ footer {
 </section>
 
 
+<!-- QUOTE -->
 <div class="quote">
 
     <strong>
@@ -262,11 +327,14 @@ footer {
 </div>
 
 
+<!-- PHILOSOPHY + PHOTO -->
 <section>
 
     <div class="center">
 
-        <div class="label">RAVE PHILOSOPHY</div>
+        <div class="label">
+            RAVE PHILOSOPHY
+        </div>
 
         <h2>
             写真から始まる。
@@ -276,30 +344,87 @@ footer {
             RAVE STUDIOが最初に考えるのは、
             「どんな写真を残したいか」です。
             <br><br>
+
             写真のイメージを決め、
             その作品に合うヘア、メイク、スタイリングを考え、
             最後に撮影で完成させます。
             <br><br>
+
             美容が主役なのではありません。
             <br>
-            <strong>あなたと、あなたを残す写真が主役です。</strong>
+
+            <strong>
+                あなたと、あなたを残す写真が主役です。
+            </strong>
         </div>
 
     </div>
 
 
+    <!-- PHOTO 1 2 3 -->
     <div class="gallery">
 
         <div class="photo">
-            <img src="rave_photo_01.png" alt="RAVE STUDIO Portrait 01">
+            <img
+                src="rave_photo_01.png"
+                alt="RAVE STUDIO Portrait 01">
         </div>
 
         <div class="photo">
-            <img src="rave_photo_02.png" alt="RAVE STUDIO Portrait 02">
+            <img
+                src="rave_photo_02.png"
+                alt="RAVE STUDIO Portrait 02">
         </div>
 
         <div class="photo">
-            <img src="rave_photo_03.png" alt="RAVE STUDIO Portrait 03">
+            <img
+                src="rave_photo_03.png"
+                alt="RAVE STUDIO Portrait 03">
+        </div>
+
+    </div>
+
+
+    <!-- VIDEO -->
+    <div class="video-gallery">
+
+        <div class="video-card">
+
+            <video
+                controls
+                playsinline
+                preload="metadata">
+
+                <source
+                    src="동여상 자료2.mp4"
+                    type="video/mp4">
+
+            </video>
+
+            <div class="video-caption">
+                RAVE STUDIO · SHOOTING
+            </div>
+
+        </div>
+
+
+        <div class="video-card">
+
+            <video
+                controls
+                playsinline
+                preload="metadata">
+
+                <source
+                    src="동영상 자료.mp4"
+                    type="video/mp4">
+
+            </video>
+
+            <div class="video-caption">
+                RAVE STUDIO · BEHIND THE SCENES
+            </div>
+
         </div>
 
     </div>
@@ -307,11 +432,14 @@ footer {
 </section>
 
 
+<!-- PROCESS -->
 <section>
 
     <div class="center">
 
-        <div class="label">THE PROCESS</div>
+        <div class="label">
+            THE PROCESS
+        </div>
 
         <h2>
             一枚の写真が完成するまで。
@@ -323,35 +451,70 @@ footer {
     <div class="process">
 
         <div class="step">
-            <div class="number">01</div>
-            <h3>IMAGE</h3>
+
+            <div class="number">
+                01
+            </div>
+
+            <h3>
+                IMAGE
+            </h3>
+
             <p>
                 どんな自分を写真に残したいか。
             </p>
+
         </div>
 
+
         <div class="step">
-            <div class="number">02</div>
-            <h3>HAIR & MAKEUP</h3>
+
+            <div class="number">
+                02
+            </div>
+
+            <h3>
+                HAIR &amp; MAKEUP
+            </h3>
+
             <p>
                 写真のイメージに合わせて準備します。
             </p>
+
         </div>
 
+
         <div class="step">
-            <div class="number">03</div>
-            <h3>SHOOTING</h3>
+
+            <div class="number">
+                03
+            </div>
+
+            <h3>
+                SHOOTING
+            </h3>
+
             <p>
                 ポーズや表情も丁寧にサポートします。
             </p>
+
         </div>
 
+
         <div class="step">
-            <div class="number">04</div>
-            <h3>THE PHOTO</h3>
+
+            <div class="number">
+                04
+            </div>
+
+            <h3>
+                THE PHOTO
+            </h3>
+
             <p>
                 旅の一日が、一枚の作品になります。
             </p>
+
         </div>
 
     </div>
@@ -359,6 +522,7 @@ footer {
 </section>
 
 
+<!-- JAPAN / PRICE -->
 <div class="japan">
 
     <div class="japan-inner center">
@@ -376,11 +540,26 @@ footer {
             日本からソウルを訪れる方にも
             RAVE STUDIOの撮影を体験していただいています。
             <br><br>
+
             写真に慣れていなくても大丈夫です。
             ポーズや表情まで撮影中にサポートします。
-            <br><br>
-            日本のお客様による実際の撮影体験も、
-            これからこちらでご紹介します。
+        </div>
+
+
+        <div class="price-box">
+
+            <div class="label">
+                PORTRAIT SESSION
+            </div>
+
+            <div class="price">
+                1 CONCEPT · ₩150,000
+            </div>
+
+            <div class="note">
+                1コンセプト 150,000ウォン
+            </div>
+
         </div>
 
     </div>
@@ -388,6 +567,7 @@ footer {
 </div>
 
 
+<!-- RESERVATION -->
 <div class="cta">
 
     <div class="label">
@@ -400,22 +580,29 @@ footer {
     </h2>
 
     <p>
-        作品・撮影についてのお問い合わせ、ご予約はInstagramへ。
+        作品・撮影についてのお問い合わせ、
+        ご予約はInstagramへ。
     </p>
 
-    <a class="button"
-       href="https://www.instagram.com/ravestudio_official/"
-       target="_blank">
-       INSTAGRAM
+    <a
+        class="button"
+        href="https://www.instagram.com/ravestudio_official/"
+        target="_blank"
+        rel="noopener">
+        INSTAGRAM / RESERVATION
     </a>
 
 </div>
 
 
+<!-- FOOTER -->
 <footer>
 
-    RAVE STUDIO · SEOUL<br>
-    PORTRAIT PHOTOGRAPHY<br><br>
+    RAVE STUDIO · SEOUL
+    <br>
+
+    PORTRAIT PHOTOGRAPHY
+    <br><br>
 
     © RAVE STUDIO
 
