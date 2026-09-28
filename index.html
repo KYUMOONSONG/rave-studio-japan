@@ -9,7 +9,25 @@
   gtag('js', new Date());
 
   gtag('config', 'AW-18468470517');
-</script>    
+</script>
+
+<!-- Event snippet for 외부 클릭 conversion page -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18468470517/11_HCLyJ-4cdEPX9ueZE',
+      'value': 1.0,
+      'currency': 'KRW',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
